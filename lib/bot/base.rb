@@ -11,7 +11,7 @@ module Bot
 
     # Public: initialize
     #
-    # Hash - hash with data
+    # Object - Parameters Object eg: Bot::Parameters
     #
     # Returns nothing
     def initialize(data)
