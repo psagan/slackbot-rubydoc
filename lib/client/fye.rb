@@ -34,7 +34,6 @@ module Client
     def on_close
       websocket_client.on(:close) do |event|
         p [:close, event.code, event.reason]
-        websocket_client = nil
       end
     end
 
