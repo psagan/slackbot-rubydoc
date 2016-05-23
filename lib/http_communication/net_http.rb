@@ -6,16 +6,23 @@ module HttpCommunication
 
     private
 
-    # make request
+    # Internal: make request. Assigns response.
+    #
+    # Returns nothing.
     def request
       self.response = Net::HTTP.get_response(URI(uri))
     end
 
-    # check if response has success status
+    # Internal: check if response has success status
+    #
+    # Returns nothing.
     def success?
       response.is_a?(Net::HTTPSuccess)
     end
 
+    # Internal: extracts content from response
+    #
+    # Returns String - empty string when response is not success
     def extract_content
       success? ? response.body : ''
     end
