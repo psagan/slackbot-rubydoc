@@ -9,7 +9,7 @@ module Config
 
 
   class EnvLoader
-    AVAILABLE_CONFIG_OPTIONS = %i{api_endpoint slack_bot_token}.freeze
+    AVAILABLE_CONFIG_OPTIONS = %i{slack_bot_token}.freeze
 
     def method_missing(name)
       env_name = prepare_name(name)
