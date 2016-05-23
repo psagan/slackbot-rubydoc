@@ -1,10 +1,10 @@
-# Class responsible for bot related to Ruby documentation in ri
+# Class responsible for bot to handle Ruby documentation in ri
 module Bot
   class RubyDoc < Base
 
-    # Public: this is custom implementation of handling data from Slack RTM websocket.
-    #         Responsible for handling incoming data (like getting info from ri) and yielding
-    #         it for further purposes.
+    # Public: this is custom implementation of handling data from Slack RTM
+    #         websocket. Responsible for handling incoming data (like getting
+    #         info from ri) and yielding it for further purposes.
     #
     # Yields response chunk as String
     #
