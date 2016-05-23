@@ -12,10 +12,10 @@ module Config
     AVAILABLE_CONFIG_OPTIONS = %i{api_endpoint slack_bot_token}.freeze
 
     def method_missing(name)
-      name = prepare_name(name)
+      env_name = prepare_name(name)
       raise NoMethodError, "Config option '#{name}' not available." unless AVAILABLE_CONFIG_OPTIONS.include?(name)
-      raise NoConfigOptionSetError, "No environment config option #{name} set" unless ENV.include?(name)
-      ENV[name]
+      raise NoConfigOptionSetError, "No environment config option #{env_name} set" unless ENV.include?(env_name)
+      ENV[env_name]
     end
 
     private
