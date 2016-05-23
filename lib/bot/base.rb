@@ -25,7 +25,7 @@ module Bot
     end
 
     def unknown_command
-      "Sorry! I can't recognize that command :("
+      "Sorry! I can't find this info in ri :("
     end
 
     attr_reader :data

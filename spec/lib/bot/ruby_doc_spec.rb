@@ -40,11 +40,11 @@ RSpec.describe Bot::RubyDoc do
       expect { |b| bot.handle_data(&b) }.to yield_control.exactly(quantity)
     end
 
-    it "yields with unknown_command  when ri returns nil" do
-      unknown_command = "Sorry! I can't recognize that command :("
+    it "yields with unknown_command  when ri returns empty string" do
+      unknown_command = "Sorry! I can't find this info in ri :("
       data = double(:data, type: Bot::RubyDoc::TYPE_MESSAGE, text: 'cmd')
       bot = Bot::RubyDoc.new(data)
-      allow(bot).to receive(:`).and_return(nil)
+      allow(bot).to receive(:`).and_return('')
 
       expect { |b| bot.handle_data(&b) }.to yield_control.once
       expect { |b| bot.handle_data(&b) }.to yield_with_args(unknown_command)

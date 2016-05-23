@@ -13,7 +13,7 @@ module Bot
 
     def get_ri_info
       result = %x{ri --no-interactive -f markdown "#{data.text}" }
-      result ? result : unknown_command
+      result.empty? ? unknown_command : result
     end
 
   end
