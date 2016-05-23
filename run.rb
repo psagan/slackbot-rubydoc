@@ -2,32 +2,18 @@ require_relative 'simple_autoloader'
 
 # config object
 config = Config::EnvLoader.new
-token = config.slack_bot_token
+
+http_communication_class = HttpCommunication::NetHttp
+
+# slack client
+client = Client::Fye.new(
+    config: config,
+    rtm_start: Client::RtmStart.new(config: config, http_communication_class: http_communication_class),
+    bot: Bot::RubyDoc,
+    bot_params_class: Bot::Parameters
+)
+
+client.start
 
 
-resp = JSON.parse(Net::HTTP.get(URI("https://slack.com/api/rtm.start?token=#{token}")))
 
-EM.run {
-  ws = Faye::WebSocket::Client.new(resp["url"])
-
-  ws.on :message do |event|
-    data = JSON.parse(event.data)
-    p data
-    if data["text"] == "say"
-
-      wroom = {
-          id: 1,
-          type: 'message',
-          channel: data["channel"],
-          text: "test"
-      }
-
-      ws.send(JSON.generate(wroom))
-    end
-  end
-
-  ws.on :close do |event|
-    p [:close, event.code, event.reason]
-    ws = nil
-  end
-}
