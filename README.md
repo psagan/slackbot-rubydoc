@@ -23,7 +23,7 @@ You also should have ruby docs generated.**
  ==> Bot started watching the Slack
  ```
 
-## How to communicate with bot form Slack ?
+## How to communicate with bot from Slack ?
 I've used direct message approach (but it can be easily upgraded):
 ```
 # direct message command
