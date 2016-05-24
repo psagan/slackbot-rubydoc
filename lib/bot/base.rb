@@ -27,7 +27,7 @@ module Bot
 
     # Internal: split response targetet for websocket into multiple chunks
     #           This is needed as slack RTM has limits: https://api.slack.com/rtm#limits
-    #           Basically it's 16 kilobytes - so they
+    #           Basically it's 16 kilobytes.
     #
     # Returns Array with chunks.
     def split(response)

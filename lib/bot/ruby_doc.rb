@@ -40,5 +40,13 @@ module Bot
       "Sorry! I can't find this info in ri :("
     end
 
+    # Internal: in evaluation of this project this method should properly
+    #           split markdown or other formats of text (based on LIMIT).
+    #
+    # Returns Array of Strings
+    def split(response)
+      super
+    end
+
   end
 end
