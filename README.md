@@ -59,7 +59,7 @@ New bot can be easily injected to client and introduce new functionality.
 
 I was also thinking about creating modules with commands for bots.
 So we could easily include multiple modules to bot class and this way we can build bots which understand more (so bot can easily responds to "Hi!", "Hello!" etc and having in the same
-time another module responsible for ri DOC) :wink: <-- but this is idea for evolution this software.
+time another module responsible for ri DOC) :wink: <-- but this is idea for evolution of this software.
 
  
 ## About dependencies I had used
