@@ -45,10 +45,14 @@ module Client
     # Returns nothing.
     def on_message
       websocket_client.on(:message) do |event|
-        ws = websocket_data_class.new(data: event.data, bot_params_class: bot_params_class)
+        websocket_response = websocket_response_data_class.new(
+            data: event.data,
+            bot_params_class: bot_params_class
+        )
 
-        bot.new(ws.bot_params).handle_data do |response|
-          websocket_client.send(ws.data_to_send(response))
+        bot.new(websocket_response.bot_params).handle_data do |message|
+          websocket_request = websocket_request_data_class.new(message: message, data: websocket_response.bot_params)
+          websocket_client.send(websocket_request.data_to_send)
         end
       end
     end
@@ -72,12 +76,24 @@ module Client
       @websocket_client ||= Faye::WebSocket::Client.new(rtm_start.websocket_url)
     end
 
-    # Internal: Get WebsocketData class. There is known dependency
-    # as this class is coupled with WebsocketData which is it's helper class on
+    # Internal: Get WebsocketResponseData class. There is known dependency
+    # as this class is coupled with WebsocketResponseData which is it's helper class on
     # this stage of development. Using method (message) to get this class as
     # it can be easily changed by Dependency Injection in the future.
-    def websocket_data_class
-      WebsocketData
+    #
+    # Returns WebsocketResponseData
+    def websocket_response_data_class
+      WebsocketResponseData
+    end
+
+    # Internal: Get WebsocketRequestData class. There is known dependency
+    # as this class is coupled with WebsocketRequestData which is it's helper class on
+    # this stage of development. Using method (message) to get this class as
+    # it can be easily changed by Dependency Injection in the future.
+    #
+    # Returns WebsocketRequestData
+    def websocket_request_data_class
+      WebsocketRequestData
     end
 
     attr_reader :config, :rtm_start, :bot, :bot_params_class

@@ -34,8 +34,10 @@ RSpec.describe Client::Fye do
     allow(websocket_client).to receive(:on).with(:close) {|&block| block.call(event) }
     allow(websocket_client).to receive(:send)
     data_to_send = double(:data_to_send)
-    websocket_data = double(:websocket_data, bot_params: '', data_to_send: data_to_send)
-    allow(Client::WebsocketData).to receive(:new).and_return(websocket_data)
+    websocket_request_data = double(:websocket_request_data, data_to_send: data_to_send)
+    allow(Client::WebsocketRequestData).to receive(:new).and_return(websocket_request_data)
+    websocket_response_data = double(:websocket_response_data, bot_params: '')
+    allow(Client::WebsocketResponseData).to receive(:new).and_return(websocket_response_data)
     allow(Faye::WebSocket::Client).to receive(:new).and_return(websocket_client)
     allow(EM).to receive(:run) {|&block| block.call }
     params = {

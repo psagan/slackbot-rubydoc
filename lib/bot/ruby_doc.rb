@@ -12,8 +12,8 @@ module Bot
       return unless is_message?
       response = get_ri_info
 
-      split(response).each do |r|
-        yield(r) if block_given?
+      split(response).each do |message|
+        yield(message) if block_given?
       end
     end
 
