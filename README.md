@@ -43,6 +43,13 @@ Classes have corresponding tests in spec directory. To run tests please type (be
  ```
  script/test
  ```
+ 
+Short description about directories in lib:
+* **bot** - contains bot classes and bot related stuff like parameter object class
+* **client** - this directory contains client code: in this case this is websocket client - so it communicates with websocket (request and response)
+* **config** - contains config class to fetch config data
+* **http_communication** - contains stuff to communicate with http eg: to get content from external url
+ 
 ## About dependencies I had used
 One of the goals is to not use lot of external dependencies.
 The easies way is to just use https://github.com/dblock/slack-ruby-bot but it has lot of external
@@ -57,3 +64,4 @@ interface for websocket client and is based on battle-tested library EventMachin
 Other dependencies I use are of course:
 * **rake**
 * **rspec** 
+
