@@ -38,7 +38,7 @@ I've used direct message approach (but it can be easily upgraded):
 
 ## About code design
 Application is written with Single Responsibility in mind and TRUE heuristic (Sandi Metz rules).
-Code starts in **run.rb** file - which has simple configuration like host, destination_directory, redis_connection params and number of threads.
+Code starts in **run.rb** file.
 
 **run.rb** is responsible for knowing what to instantiate. I use Dependency Injection and aggregation approach.
 In **run.rb** I inject all stuff to main execution object **"Client::Fye"** which is responsible for running proper steps in **#run** method.
