@@ -8,7 +8,6 @@ module Bot
     #
     # Yields response chunk as String
     #
-    # Returns nothing.
     def handle_data
       return unless is_message?
       response = get_ri_info

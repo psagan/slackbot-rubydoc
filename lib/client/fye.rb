@@ -14,7 +14,6 @@ module Client
     #        :bot - bot class (not object)
     #        :bot_params_class - class for parameters object (not object)
     #
-    # Returns nothing.
     def initialize(params)
       @config = params.fetch(:config)
       @rtm_start = params.fetch(:rtm_start)
@@ -75,7 +74,8 @@ module Client
 
     # Internal: Get WebsocketData class. There is known dependency
     # as this class is coupled with WebsocketData which is it's helper class on
-    # this stage of development.
+    # this stage of development. Using method (message) to get this class as
+    # it can be easily changed by Dependency Injection in the future.
     def websocket_data_class
       WebsocketData
     end

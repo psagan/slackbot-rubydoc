@@ -13,7 +13,6 @@ module Bot
     #
     # Object - Parameters Object eg: Bot::Parameters
     #
-    # Returns nothing
     def initialize(data)
       @data = data
     end

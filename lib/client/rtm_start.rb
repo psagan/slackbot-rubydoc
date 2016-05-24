@@ -23,7 +23,6 @@ module Client
     #        :http_communication_class - http communication class which respond
     #                                    to #content
     #
-    # Returns nothing
     def initialize(params)
       @config = params.fetch(:config)
       @http_communication_class = params.fetch(:http_communication_class)

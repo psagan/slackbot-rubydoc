@@ -23,7 +23,6 @@ module Client
     #        :bot_params_class - class for parameters object eg:
     #                            Bot::Parameters
     #
-    # Returns nothing
     def initialize(params)
       @data = prepare_income_data(params.fetch(:data))
       @bot_params_class = params.fetch(:bot_params_class)
