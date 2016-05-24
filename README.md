@@ -41,7 +41,10 @@ Application is written with Single Responsibility in mind and TRUE heuristic (Sa
 Code starts in **run.rb** file.
 
 **run.rb** is responsible for knowing what to instantiate. I use Dependency Injection and aggregation approach.
-In **run.rb** I inject all stuff to main execution object **"Client::Fye"** which is responsible for running proper steps in **#run** method.
+In **run.rb** I inject all stuff to main execution object **"Client::Fye"** which is responsible for running proper steps in **#start** method.
+
+In general in start method there is connection to Slack's websocket opened and two event listeners are added "on message from websocket" and "on close of websocket connection".
+When message is retrieved from websocket then bot is analyzing and extracts the content from **ri**, responding according to results.
  
 Classes have corresponding tests in spec directory. To run tests please type (being in app's directory):
  ```
