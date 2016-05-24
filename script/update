@@ -9,5 +9,4 @@ cd "$(dirname "$0")/.."
 # just only run bootstrap script
 script/bootstrap
 
-echo "==> Updated! Bot is now ready to start! :)"
 
