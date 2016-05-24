@@ -25,7 +25,7 @@ module Bot
     #
     # Returns string formatted with markdown
     def get_ri_info
-      result = %x{ri --no-interactive -f markdown "#{data.text}" }
+      result = %x{ri --no-interactive -f markdown "#{data.text}" 2>/dev/null}
       result.empty? ? unknown_command : result
     end
 
