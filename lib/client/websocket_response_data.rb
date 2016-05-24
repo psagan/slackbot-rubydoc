@@ -1,4 +1,5 @@
-# This class is responsible for handling websocket data
+# This class is responsible for handling websocket response data - retrieved
+# from websocket.
 module Client
   class WebsocketResponseData
 
