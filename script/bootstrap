@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# script/bootstrap: Resolve all dependencies that the application requires to
+#                   run.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+# do not install ruby as application assumes ruby is installed
+# user can have it installed by rvm, brew, apt-get so to simplify this
+# script on this stage just assume that ruby is installed
+
+# install bundle if needed
+which bundle >/dev/null 2>&1  || {
+    echo "==> Installing Bundler..."
+    gem install bundler
+    rbenv rehash
+}
+
+
+# install gemsif needed
+if [ -f "Gemfile" ]; then
+  echo "==> Installing gem dependencies…"
+  bundle check >/dev/null 2>&1  || {
+    bundle install --quiet
+  }
+fi

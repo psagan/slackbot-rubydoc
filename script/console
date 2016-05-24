@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# script/console: Launch a console for the application. Optionally allow an
+#                 environment to be passed in to let the script handle the
+#                 specific requirements for connecting to a console for that
+#                 environment.
+
+# left empty as not needed on this stage :P ...
+echo "==> Nothing to do in console"
