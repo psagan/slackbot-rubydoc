@@ -10,14 +10,14 @@ Slack bot for providing ruby documentation from ri CLI tool
  ==> Bot is now ready to start! :)
  ```
 
-3. Please add environment variable **SLACK_BOT_TOKEN**
+3. Please add environment variable **SLACK_BOT_TOKEN** with your token assigned to it.
 
 4. Then you are ready to start the bot:
-```
-script/server
-==> Installing gem dependencies…
-==> Bot started watching the Slack
-```
+ ```
+ script/server
+ ==> Installing gem dependencies…
+ ==> Bot started watching the Slack
+ ```
 
 ## About code design
 Application is written with Single Responsibility in mind and TRUE heuristic (Sandi Metz rules).
