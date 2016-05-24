@@ -2,13 +2,17 @@
 Slack bot for providing ruby documentation from ri CLI tool
 
 ## How to start using bot
-Please clone the repository. Go to cloned directory and run:
+1. Please clone the repository. 
+2. Go to cloned directory and run:
  ```
  script/setup
  ==> Installing gem dependencies…
  ==> Bot is now ready to start! :)
  ```
-Then you are ready to start the bot:
+
+3. Please add environment variable **SLACK_BOT_TOKEN**
+
+4. Then you are ready to start the bot:
 ```
 script/server
 ==> Installing gem dependencies…
