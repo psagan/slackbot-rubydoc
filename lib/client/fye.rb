@@ -11,7 +11,7 @@ module Client
     #        param provided. Params are:
     #        :config - config object
     #        :rtm_start - rtm start object
-    #        :bot - bot class (not object)
+    #        :bot - instance of bot see: Bot::Base
     #        :bot_params_class - class for parameters object (not object)
     #
     def initialize(params)
@@ -50,7 +50,7 @@ module Client
             bot_params_class: bot_params_class
         )
 
-        bot.new(websocket_response.bot_params).handle_data do |message|
+        bot.handle_data(websocket_response.bot_params) do |message|
           websocket_request = websocket_request_data_class.new(message: message, data: websocket_response.bot_params)
           websocket_client.send(websocket_request.data_to_send)
         end

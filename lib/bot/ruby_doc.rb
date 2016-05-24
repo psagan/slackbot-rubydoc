@@ -6,11 +6,13 @@ module Bot
     #         websocket. Responsible for handling incoming data (like getting
     #         info from ri) and yielding it for further purposes.
     #
+    # data - Parameters Object eg: Bot::Parameters
+    #
     # Yields response chunk as String
     #
-    def handle_data
-      return unless is_message?
-      response = get_ri_info
+    def handle_data(data)
+      return unless is_message?(data)
+      response = get_ri_info(data)
 
       split(response).each do |message|
         yield(message) if block_given?
@@ -23,7 +25,7 @@ module Bot
     #           from ri documentation (ri CLI tool)
     #
     # Returns string formatted with markdown
-    def get_ri_info
+    def get_ri_info(data)
       # redirecting errors to /dev/null as to not populate terminal
       # with info that command not found in ri
       result = %x{ri --no-interactive -f markdown "#{data.text}" 2>/dev/null}

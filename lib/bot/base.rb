@@ -9,14 +9,6 @@ module Bot
     # Constant with characters limit per message
     MESSAGE_LIMIT = 4000.freeze
 
-    # Public: initialize
-    #
-    # Object - Parameters Object eg: Bot::Parameters
-    #
-    def initialize(data)
-      @data = data
-    end
-
     # Public: main method responsible for handling data from socket
     #
     # Raises NotImplementedError if method is not in sublcass
@@ -29,7 +21,7 @@ module Bot
     # Internal: check if data type is message
     #
     # Returns boolean
-    def is_message?
+    def is_message?(data)
       data.type == TYPE_MESSAGE
     end
 
@@ -48,7 +40,5 @@ module Bot
     def unknown_command
       "Sorry! I can't recognize this command :("
     end
-
-    attr_reader :data
   end
 end

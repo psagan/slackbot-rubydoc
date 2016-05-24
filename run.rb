@@ -9,7 +9,7 @@ http_communication_class = HttpCommunication::NetHttp
 client = Client::Fye.new(
     config: config,
     rtm_start: Client::RtmStart.new(config: config, http_communication_class: http_communication_class),
-    bot: Bot::RubyDoc,
+    bot: Bot::RubyDoc.new,
     bot_params_class: Bot::Parameters
 )
 

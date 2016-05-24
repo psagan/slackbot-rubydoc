@@ -24,9 +24,8 @@ RSpec.describe Client::Fye do
   def prepare_params
     config = double(:config)
     rtm_start = double(:rtm_start, websocket_url: 'wss/')
-    bot_instance = double(:bot_instance)
-    allow(bot_instance).to receive(:handle_data) {|&block| block.call(double(:response))}
-    bot = double(:bot, new: bot_instance)
+    bot = double(:bot)
+    allow(bot).to receive(:handle_data) {|&block| block.call(double(:response))}
     bot_params_class = double(:bot_params_class)
     websocket_client = double(:websocket_client)
     event = double(:event, data: 'd', code: 'c', reason: 'r')
