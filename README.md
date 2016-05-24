@@ -19,6 +19,19 @@ Slack bot for providing ruby documentation from ri CLI tool
  ==> Bot started watching the Slack
  ```
 
+## How to communicate with bot form Slack ?
+I've used direct message approach (but it can be easily upgraded):
+```
+# direct message command
+
+> user [9:22 AM] 
+> Array#first
+
+> docbot BOT [9:22 AM]
+> # Array#first
+> ...
+```
+
 ## About code design
 Application is written with Single Responsibility in mind and TRUE heuristic (Sandi Metz rules).
 Code starts in **run.rb** file - which has simple configuration like host, destination_directory, redis_connection params and number of threads.
@@ -35,10 +48,10 @@ One of the goals is to not use lot of external dependencies.
 The easies way is to just use https://github.com/dblock/slack-ruby-bot but it has lot of external
 dependencies like ActiveSupport etc. On the other hand if we can live with that dependencies I recommend to
 use this gem as it works really nice and is easy in implementation and is actively developed and supported. 
-**My bot from lib/bot is reusable and also works nice with slack-ruby-bot gem.** :)
+**My bot from lib/bot is reusable and also works nice with slack-ruby-bot gem.** :wink:
 
 Ok, I did some job to not use **slack-ruby-bot** and I'm using **faye-websocket** to communicate with websocket
-just to not reinvent the wheel and do not write all the websocket communication code on my own ;P (to keep
+just to not reinvent the wheel and do not write all the websocket communication code on my own :stuck_out_tongue: (to keep
 healthy balance between what to use as dependency and what to write on my own).  Faye-websocket provides nice
 interface for websocket client and is based on battle-tested library EventMachine.
 Other dependencies I use are of course:
