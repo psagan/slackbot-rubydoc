@@ -2,8 +2,9 @@
 Slack bot for providing ruby documentation from ri CLI tool
 
 ## How to start using bot
-You need to have ruby installed on your machine (this is main assumption, as you
-can have ruby installed via brew, rvm, apt-get etc).
+
+**IMPORTANT: You need to have ruby installed on your machine (this is main assumption, as you
+can have ruby installed via brew, rvm, apt-get etc). You also should have generated ruby docs**
 
 1. Please clone the repository. 
 2. Go to cloned directory and run:
