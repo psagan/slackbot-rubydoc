@@ -12,7 +12,7 @@ Then you are ready to start the bot:
 ```
 script/server
 ==> Installing gem dependencies…
-===> Bot started watching the Slack
+==> Bot started watching the Slack
 ```
 
 ## About code design
