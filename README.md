@@ -52,6 +52,14 @@ Short description about directories in lib:
 * **client** - this directory contains client code: in this case this is websocket client - so it communicates with websocket (request and response)
 * **config** - contains config class to fetch config data
 * **http_communication** - contains stuff to communicate with http eg: to get content from external url
+
+Bot functionality can be easily extended. New bots can be easily added by extending Bot::Base class.
+New bot can be easily injected to client and introduce new functionality. 
+
+I was also thinking about creating modules with commands for bots.
+So we could easily include multiple modules to bot class and this way we can build bots which understand more (so bot can easily responds to "Hi!", "Hello!" etc and having in the same
+time another module responsible for ri DOC) :wink: <-- but this is idea for evolution this software.
+
  
 ## About dependencies I had used
 One of the goals is to not use lot of external dependencies.
@@ -67,4 +75,3 @@ interface for websocket client and is based on battle-tested library EventMachin
 Other dependencies I use are of course:
 * **rake**
 * **rspec** 
-
