@@ -61,13 +61,13 @@ Bot functionality can be easily extended. New bots can be easily added by extend
 New bot can be easily injected to client and introduce new functionality. 
 
 I was also thinking about creating modules with commands for bots.
-So we could easily include multiple modules to bot class and this way we can build bots which understand more (so bot can easily responds to "Hi!", "Hello!" etc and having in the same
+So we could easily include multiple modules to bot class and this way we can build bots who understand more (so bot can easily responds to "Hi!", "Hello!" etc and having in the same
 time another module responsible for ri DOC) :wink: <-- but this is idea for evolution of this software.
 
  
 ## About dependencies I had used
 One of the goals is to not use lot of external dependencies.
-The easies way is to just use https://github.com/dblock/slack-ruby-bot but it has lot of external
+The easiest way is to just use https://github.com/dblock/slack-ruby-bot but it has lot of external
 dependencies like ActiveSupport etc. On the other hand if we can live with that dependencies I recommend to
 use this gem as it works really nice and is easy in implementation and is actively developed and supported. 
 **My bot from lib/bot is reusable and also works nice with slack-ruby-bot gem.** :wink:
